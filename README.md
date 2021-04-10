@@ -6,6 +6,8 @@
 [![Packages](https://david-dm.org/Codibre/is-this-a-pigeon.svg)](https://david-dm.org/Codibre/is-this-a-pigeon)
 [![npm version](https://badge.fury.io/js/is-this-a-pigeon.svg)](https://badge.fury.io/js/is-this-a-pigeon)
 
+![is-this-a-pigeson-logo](assets/logo.jpg)
+
 Just a project with some type guard functions to identify the type of an object not vanilla covered and some dummy functions for better readability and to use as some common callbacks
 
 # How to install
