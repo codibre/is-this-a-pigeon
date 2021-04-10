@@ -65,7 +65,7 @@
   "bugs": {
     "url": "https://github.com/codibre/is-this-a-pigeon/issues"
   },
-  "keywords": [],
+  "keywords": ["typeguard", "type", "guard", "callbacks"],
   "license": "MIT",
   "devDependencies": {
     "@codibre/confs": "1.0.1",
