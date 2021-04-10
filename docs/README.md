@@ -1,6 +1,6 @@
-fluent-iterable - v0.2.3
+fluent-iterable - v0.3.0
 
-# fluent-iterable - v0.2.3
+# fluent-iterable - v0.3.0
 
 ## Table of contents
 
@@ -49,6 +49,7 @@ fluent-iterable - v0.2.3
 - [isFalsy](README.md#isfalsy)
 - [isFunction](README.md#isfunction)
 - [isIterable](README.md#isiterable)
+- [isKeyOf](README.md#iskeyof)
 - [isNull](README.md#isnull)
 - [isNumber](README.md#isnumber)
 - [isOnlyIterable](README.md#isonlyiterable)
@@ -697,6 +698,27 @@ Name | Type |
 `value` | *any* |
 
 **Returns:** value is Iterable<any\>
+
+___
+
+### isKeyOf
+
+▸ **isKeyOf**<T\>(`key`: *string* \| *number* \| *symbol*, `target`: T): key is keyof T
+
+#### Type parameters:
+
+Name | Type |
+:------ | :------ |
+`T` | Object |
+
+#### Parameters:
+
+Name | Type |
+:------ | :------ |
+`key` | *string* \| *number* \| *symbol* |
+`target` | T |
+
+**Returns:** key is keyof T
 
 ___
 

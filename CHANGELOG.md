@@ -1,5 +1,8 @@
 
-## 0.2.3
+## 0.3.0
+* d56975e adding isKeyOf
+## v0.2.3
+* 16d61a0 0.2.3
 * b5aecb8 minor type fix
 ## v0.2.2
 * b0e0e0d 0.2.2
