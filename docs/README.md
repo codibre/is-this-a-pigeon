@@ -1,15 +1,19 @@
-fluent-iterable - v0.2.1
+fluent-iterable - v0.2.2
 
-# fluent-iterable - v0.2.1
+# fluent-iterable - v0.2.2
 
 ## Table of contents
 
 ### Type aliases
 
 - [AbstractClass](README.md#abstractclass)
+- [AnyIterable](README.md#anyiterable)
+- [AnyIterableItem](README.md#anyiterableitem)
 - [Args](README.md#args)
+- [AsyncIterableItem](README.md#asynciterableitem)
 - [Class](README.md#class)
 - [Func](README.md#func)
+- [IterableItem](README.md#iterableitem)
 - [Lenghtable](README.md#lenghtable)
 - [Primitive](README.md#primitive)
 - [Sizeable](README.md#sizeable)
@@ -85,9 +89,45 @@ Name | Type |
 
 ___
 
+### AnyIterable
+
+Ƭ **AnyIterable**<T\>: *Iterable*<T\> \| *AsyncIterable*<T\>
+
+#### Type parameters:
+
+Name |
+:------ |
+`T` |
+
+___
+
+### AnyIterableItem
+
+Ƭ **AnyIterableItem**<T\>: T *extends* [*AnyIterable*](README.md#anyiterable)<*infer* R\> ? R : *never*
+
+#### Type parameters:
+
+Name |
+:------ |
+`T` |
+
+___
+
 ### Args
 
 Ƭ **Args**: *any*[]
+
+___
+
+### AsyncIterableItem
+
+Ƭ **AsyncIterableItem**<T\>: T *extends* *AsyncIterable*<*infer* R\> ? R : *never*
+
+#### Type parameters:
+
+Name |
+:------ |
+`T` |
 
 ___
 
@@ -137,6 +177,18 @@ Name | Type |
 `...args` | A |
 
 **Returns:** R
+
+___
+
+### IterableItem
+
+Ƭ **IterableItem**<T\>: T *extends* *Iterable*<*infer* R\> ? R : *never*
+
+#### Type parameters:
+
+Name |
+:------ |
+`T` |
 
 ___
 

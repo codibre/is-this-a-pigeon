@@ -1,5 +1,8 @@
 
-## 0.2.1
+## 0.2.2
+* b44a648 adding iterable item types
+## v0.2.1
+* 5b7c493 0.2.1
 ## v0.2.0
 * 0bffb18 0.2.0
 * 7cd2bb5 adding delay
