@@ -1,7 +1,7 @@
 {
   "name": "is-this-a-pigeon",
   "description": "This project is just a template for creation of new projects",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": {
     "name": "Thiago O Santos <tos.oliveira@gmail.com>"
   },
@@ -65,7 +65,12 @@
   "bugs": {
     "url": "https://github.com/codibre/is-this-a-pigeon/issues"
   },
-  "keywords": ["typeguard", "type", "guard", "callbacks"],
+  "keywords": [
+    "typeguard",
+    "type",
+    "guard",
+    "callbacks"
+  ],
   "license": "MIT",
   "devDependencies": {
     "@codibre/confs": "1.0.1",
