@@ -1,4 +1,4 @@
-import { Func, Lenghtable, Sizeable } from './types';
+import { AnyIterable, Func, Lenghtable, Sizeable } from './types';
 
 export function isPromiseLike(t: any): t is PromiseLike<any> {
 	return !!(t && typeof t.then === 'function');
@@ -28,7 +28,7 @@ export function isAsyncIterable(value: any): value is AsyncIterable<any> {
 
 export function isAnyIterable(
 	value: any,
-): value is Iterable<any> | AsyncIterable<any> {
+): value is AnyIterable<any> {
 	return (
 		value &&
 		(typeof value[Symbol.iterator] === 'function' ||
