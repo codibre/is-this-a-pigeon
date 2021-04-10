@@ -1,5 +1,8 @@
 
-## 0.2.2
+## 0.2.3
+* b5aecb8 minor type fix
+## v0.2.2
+* b0e0e0d 0.2.2
 * b44a648 adding iterable item types
 ## v0.2.1
 * 5b7c493 0.2.1

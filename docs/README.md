@@ -1,6 +1,6 @@
-fluent-iterable - v0.2.2
+fluent-iterable - v0.2.3
 
-# fluent-iterable - v0.2.2
+# fluent-iterable - v0.2.3
 
 ## Table of contents
 
@@ -604,7 +604,7 @@ ___
 
 ### isAnyIterable
 
-▸ **isAnyIterable**(`value`: *any*): value is Iterable<any\> \| AsyncIterable<any\>
+▸ **isAnyIterable**(`value`: *any*): value is AnyIterable<any\>
 
 #### Parameters:
 
@@ -612,7 +612,7 @@ Name | Type |
 :------ | :------ |
 `value` | *any* |
 
-**Returns:** value is Iterable<any\> \| AsyncIterable<any\>
+**Returns:** value is AnyIterable<any\>
 
 ___
 
