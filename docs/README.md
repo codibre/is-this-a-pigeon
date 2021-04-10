@@ -1,6 +1,6 @@
-fluent-iterable - v0.1.1
+fluent-iterable - v0.2.0
 
-# fluent-iterable - v0.1.1
+# fluent-iterable - v0.2.0
 
 ## Table of contents
 
@@ -57,6 +57,7 @@ fluent-iterable - v0.1.1
 - [lesserThan](README.md#lesserthan)
 - [propValue](README.md#propvalue)
 - [size](README.md#size)
+- [wait](README.md#wait)
 
 ## Type aliases
 
@@ -831,3 +832,34 @@ Name | Type |
 `x` | [*Sizeable*](README.md#sizeable) |
 
 **Returns:** *number*
+
+___
+
+### wait
+
+▸ `Const`**wait**(`ms`: *number*): *Promise*<void\>
+
+#### Parameters:
+
+Name | Type |
+:------ | :------ |
+`ms` | *number* |
+
+**Returns:** *Promise*<void\>
+
+▸ `Const`**wait**<T\>(`ms`: *number*, `value`: T): *Promise*<T\>
+
+#### Type parameters:
+
+Name |
+:------ |
+`T` |
+
+#### Parameters:
+
+Name | Type |
+:------ | :------ |
+`ms` | *number* |
+`value` | T |
+
+**Returns:** *Promise*<T\>

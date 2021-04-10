@@ -1,5 +1,8 @@
 
-## 0.1.1
+## 0.2.0
+* 7cd2bb5 adding delay
+## v0.1.1
+* cced703 0.1.1
 * 9db4d9e making IsOnly Iterable return false to every lenghtable and sizeable objects
 ## v0.1.0
 * c756766 0.1.0
