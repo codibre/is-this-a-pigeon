@@ -1,5 +1,5 @@
 {
-  "name": "boilerplate-base",
+  "name": "is-this-a-pigeon",
   "description": "This project is just a template for creation of new projects",
   "version": "0.0.0",
   "private": true,
@@ -60,11 +60,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/codibre/boilerplate-base.git"
+    "url": "https://github.com/codibre/is-this-a-pigeon.git"
   },
-  "homepage": "https://github.com/codibre/boilerplate-base#readme",
+  "homepage": "https://github.com/codibre/is-this-a-pigeon#readme",
   "bugs": {
-    "url": "https://github.com/codibre/boilerplate-base/issues"
+    "url": "https://github.com/codibre/is-this-a-pigeon/issues"
   },
   "keywords": [],
   "license": "MIT",
@@ -73,13 +73,13 @@
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/git": "^9.0.0",
-    "@semantic-release/npm": "^7.1.0",
+    "@semantic-release/npm": "^7.1.1",
     "@semantic-release/release-notes-generator": "^9.0.2",
     "@types/jest": "^26.0.22",
     "@types/semantic-release": "^17.2.0",
-    "@typescript-eslint/eslint-plugin": "^4.20.0",
-    "@typescript-eslint/parser": "^4.20.0",
-    "eslint": "^7.23.0",
+    "@typescript-eslint/eslint-plugin": "^4.21.0",
+    "@typescript-eslint/parser": "^4.21.0",
+    "eslint": "^7.24.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-unused-imports": "^1.1.1",
@@ -90,8 +90,8 @@
     "ts-jest": "^26.5.4",
     "ts-loader": "^8.1.0",
     "ts-node": "^9.1.1",
-    "typedoc": "^0.20.34",
-    "typedoc-plugin-markdown": "^3.6.0",
-    "typescript": "^4.2.3"
+    "typedoc": "^0.20.35",
+    "typedoc-plugin-markdown": "^3.6.1",
+    "typescript": "^4.2.4"
   }
 }
