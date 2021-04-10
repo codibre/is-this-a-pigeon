@@ -64,3 +64,14 @@ export function lesserOrEqual<T>(threshold: T) {
 export function equal<T>(value: T) {
 	return (x: unknown) => x === value;
 }
+
+export function propValue<K extends keyof T, T extends object = any>(k: K) {
+	return (t: T) => t[k];
+}
+
+export function compareProp<K extends keyof T, T extends object = any>(
+	k: K,
+	comparer: (t: T[K]) => boolean,
+) {
+	return (t: T) => comparer(t[k]);
+}

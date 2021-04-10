@@ -7,6 +7,7 @@ import {
 	hasSize,
 	hasTruthyProperties,
 	hasTruthyProperty,
+	isAnyIterable,
 	isArray,
 	isAsyncIterable,
 	isBoolean,
@@ -144,6 +145,36 @@ describe('guards.ts', () => {
 			})();
 
 			const result = isAsyncIterable(value);
+
+			expect(result).toBe(false);
+		});
+	});
+
+	describe(isAnyIterable.name, () => {
+		it('should return true when value is an async iterable', () => {
+			const value = (async function* () {
+				yield 1;
+			})();
+
+			const result = isAnyIterable(value);
+
+			expect(result).toBe(true);
+		});
+
+		it('should return true when value is an iterable', () => {
+			const value = (function* () {
+				yield 1;
+			})();
+
+			const result = isAnyIterable(value);
+
+			expect(result).toBe(true);
+		});
+
+		it('should return false when value is not an iterable or an async iterable', () => {
+			const value = 1;
+
+			const result = isAnyIterable(value);
 
 			expect(result).toBe(false);
 		});

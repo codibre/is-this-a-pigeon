@@ -22,6 +22,16 @@ export function isAsyncIterable(value: any): value is AsyncIterable<any> {
 	return !!(value && typeof value[Symbol.asyncIterator] === 'function');
 }
 
+export function isAnyIterable(
+	value: any,
+): value is Iterable<any> | AsyncIterable<any> {
+	return (
+		value &&
+		(typeof value[Symbol.iterator] === 'function' ||
+			typeof value[Symbol.asyncIterator] === 'function')
+	);
+}
+
 export function isString(t: any): t is string {
 	return typeof t === 'string';
 }

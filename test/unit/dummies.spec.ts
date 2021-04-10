@@ -15,6 +15,8 @@ import {
 	lesserThan,
 	lesserOrEqual,
 	equal,
+	compareProp,
+	propValue,
 } from '../../src';
 
 describe('dummies.ts', () => {
@@ -595,6 +597,118 @@ describe('dummies.ts', () => {
 			const result = callback({});
 
 			expect(result).toBe(false);
+		});
+	});
+
+	describe(compareProp.name, () => {
+		it('should return a function that returns true when property passes the comparison', () => {
+			const value = {
+				a: 1,
+				b: 2,
+				c: 3,
+			};
+
+			const callback = compareProp('a', equal(1));
+			const result = callback(value);
+
+			expect(result).toBe(true);
+		});
+
+		it('should return a function that returns false when property does not passes the comparison', () => {
+			const value = {
+				a: 1,
+				b: 2,
+				c: 3,
+			};
+
+			const callback = compareProp('b', equal(1));
+			const result = callback(value);
+
+			expect(result).toBe(false);
+		});
+
+		it('should return a function that serves as filter for all the elements of an array that passes the comparison', () => {
+			const value = [
+				{
+					a: 1,
+					b: 2,
+					c: 3,
+				},
+				{
+					a: 4,
+					b: 5,
+					c: 6,
+				},
+				{
+					a: 1,
+					b: 7,
+					c: 8,
+				},
+				{
+					a: 9,
+					b: 10,
+					c: 11,
+				},
+			];
+
+			const result = value.filter(compareProp('a', equal(1)));
+
+			expect(result).toEqual([
+				{
+					a: 1,
+					b: 2,
+					c: 3,
+				},
+				{
+					a: 1,
+					b: 7,
+					c: 8,
+				},
+			]);
+		});
+	});
+
+	describe(propValue.name, () => {
+		it('should return a function that returns the property value', () => {
+			const value = {
+				a: 1,
+				b: 2,
+				c: 3,
+			};
+
+			const callback = propValue('a');
+			const result = callback(value);
+
+			expect(result).toBe(1);
+		});
+
+		it('should return a function that serves as mapper for all the elements of an array', () => {
+			const value = [
+				{
+					a: 1,
+					b: 2,
+					c: 3,
+				},
+				{
+					a: 4,
+					b: 5,
+					c: 6,
+				},
+				{
+					a: 1,
+					b: 7,
+					c: 8,
+				},
+				{
+					a: 9,
+					b: 10,
+					c: 11,
+				},
+			];
+
+			const result = value.map(propValue('a'));
+
+			expect(result).toEqual([1, 4, 1, 9]);
 		});
 	});
 });
