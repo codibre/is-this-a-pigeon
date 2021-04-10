@@ -1,5 +1,6 @@
 import { hasLength } from './guards';
 import { Lenghtable, Sizeable } from './types';
+import { promisify } from 'util';
 
 export function identity<T>(x: T) {
 	return x;
@@ -75,3 +76,5 @@ export function compareProp<K extends keyof T, T extends object = any>(
 ) {
 	return (t: T) => comparer(t[k]);
 }
+
+export const wait = promisify(setTimeout);
