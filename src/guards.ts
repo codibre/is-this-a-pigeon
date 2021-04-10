@@ -26,9 +26,7 @@ export function isAsyncIterable(value: any): value is AsyncIterable<any> {
 	return !!(value && typeof value[Symbol.asyncIterator] === 'function');
 }
 
-export function isAnyIterable(
-	value: any,
-): value is AnyIterable<any> {
+export function isAnyIterable(value: any): value is AnyIterable<any> {
 	return (
 		value &&
 		(typeof value[Symbol.iterator] === 'function' ||
@@ -126,4 +124,11 @@ export function hasSize(x: unknown): x is Sizeable {
 
 export function hasLength(x: unknown): x is Lenghtable {
 	return hasProperty(x, 'length');
+}
+
+export function isKeyOf<T extends Object>(
+	key: string | number | symbol,
+	target: T,
+): key is keyof T {
+	return target && (target as Object).hasOwnProperty(key);
 }

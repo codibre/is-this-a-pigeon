@@ -14,6 +14,7 @@ import {
 	isFalsy,
 	isFunction,
 	isIterable,
+	isKeyOf,
 	isNull,
 	isNumber,
 	isOnlyIterable,
@@ -550,5 +551,31 @@ describe('guards.ts', () => {
 
 			expect(result).toBe(false);
 		});
+	});
+
+	describe(isKeyOf.name, () => {
+		it('should return true when value is a key of target', () => {
+			let result = 0;
+			const target = { a: 1 };
+			const value: string = 'a';
+
+			if (isKeyOf(value, target)) {
+				result = target[value];
+			}
+
+			expect(result).toBe(1);
+		});
+	});
+
+	it('should return false when value is a not key of target', () => {
+		let result = 0;
+		const target = { a: 1 };
+		const value: string = 'b';
+
+		if (isKeyOf(value, target)) {
+			result = target[value];
+		}
+
+		expect(result).toBe(0);
 	});
 });
