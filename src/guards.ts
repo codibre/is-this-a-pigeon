@@ -14,7 +14,11 @@ export function isIterable(value: any): value is Iterable<any> {
 
 export function isOnlyIterable(value: any): value is Iterable<any> {
 	return (
-		typeof value !== 'string' && !Array.isArray(value) && isIterable(value)
+		value &&
+		typeof value !== 'string' &&
+		typeof value.size !== 'number' &&
+		typeof value.length !== 'number' &&
+		isIterable(value)
 	);
 }
 

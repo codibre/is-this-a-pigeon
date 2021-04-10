@@ -91,7 +91,7 @@ describe('guards.ts', () => {
 	});
 
 	describe(isOnlyIterable.name, () => {
-		it('should return true when value is an async iterable', () => {
+		it('should return true when value is an iterable', () => {
 			const value = (function* () {
 				yield 1;
 			})();
@@ -111,6 +111,26 @@ describe('guards.ts', () => {
 
 		it('should return false when value is an array', () => {
 			const value = [1, 2, 3];
+
+			const result = isOnlyIterable(value);
+
+			expect(result).toBe(false);
+		});
+
+		it('should return false when value is a Set', () => {
+			const value = new Set([1, 2, 3]);
+
+			const result = isOnlyIterable(value);
+
+			expect(result).toBe(false);
+		});
+
+		it('should return false when value is a Map', () => {
+			const value = new Map([
+				[1, 1],
+				[2, 2],
+				[3, 3],
+			]);
 
 			const result = isOnlyIterable(value);
 
