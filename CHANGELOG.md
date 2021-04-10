@@ -1,5 +1,8 @@
 
-## 0.1.0
+## 0.1.1
+* 9db4d9e making IsOnly Iterable return false to every lenghtable and sizeable objects
+## v0.1.0
+* c756766 0.1.0
 * 62a5062 adding keywords
 * 0d5cba4 removing private mark
 ## v0.0.1
