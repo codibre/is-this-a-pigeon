@@ -10,3 +10,4 @@ export type IterableItem<T> = T extends Iterable<infer R> ? R : never;
 export type AnyIterable<T> = Iterable<T> | AsyncIterable<T>;
 export type AsyncIterableItem<T> = T extends AsyncIterable<infer R> ? R : never;
 export type AnyIterableItem<T> = T extends AnyIterable<infer R> ? R : never;
+export type AbstractConstructorParameters<T extends abstract new (...args: any) => any> = T extends abstract new (...args: infer P) => any ? P : never;
