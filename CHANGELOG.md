@@ -1,5 +1,8 @@
 
-## 0.3.2
+## 0.3.3
+* 2f08e6b fixing isKeyOf
+## v0.3.2
+* 25b79c4 0.3.2
 * 7160fbb adding abstract constructor parameters
 ## v0.3.1
 * 4815741 0.3.1
