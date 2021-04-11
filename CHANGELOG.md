@@ -1,5 +1,8 @@
 
-## 0.3.3
+## 0.3.4
+* 2dfc6b7 removing map
+## v0.3.3
+* f822df7 0.3.3
 * 2f08e6b fixing isKeyOf
 ## v0.3.2
 * 25b79c4 0.3.2
