@@ -130,5 +130,5 @@ export function isKeyOf<T extends Object>(
 	key: string | number | symbol,
 	target: T,
 ): key is keyof T {
-	return target && (target as Object).hasOwnProperty(key);
+	return target && hasProperty(target, key);
 }
