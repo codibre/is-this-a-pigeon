@@ -1,12 +1,13 @@
-fluent-iterable - v0.3.1
+fluent-iterable - v0.3.2
 
-# fluent-iterable - v0.3.1
+# fluent-iterable - v0.3.2
 
 ## Table of contents
 
 ### Type aliases
 
 - [AbstractClass](README.md#abstractclass)
+- [AbstractConstructorParameters](README.md#abstractconstructorparameters)
 - [AnyIterable](README.md#anyiterable)
 - [AnyIterableItem](README.md#anyiterableitem)
 - [Args](README.md#args)
@@ -87,6 +88,18 @@ Name | Type |
 `...args` | [*Args*](README.md#args) |
 
 **Returns:** T
+
+___
+
+### AbstractConstructorParameters
+
+Ƭ **AbstractConstructorParameters**<T\>: T *extends* (...`args`: *infer* P) => *any* ? P : *never*
+
+#### Type parameters:
+
+Name | Type |
+:------ | :------ |
+`T` | (...`args`: *any*) => *any* |
 
 ___
 
