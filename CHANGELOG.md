@@ -1,5 +1,8 @@
 
-## 0.3.4
+## 0.3.5
+* a161296 adding isClass guard
+## v0.3.4
+* 3e83db3 0.3.4
 * 2dfc6b7 removing map
 ## v0.3.3
 * f822df7 0.3.3

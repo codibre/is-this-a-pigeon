@@ -1,6 +1,6 @@
-fluent-iterable - v0.3.4
+fluent-iterable - v0.3.5
 
-# fluent-iterable - v0.3.4
+# fluent-iterable - v0.3.5
 
 ## Table of contents
 
@@ -47,6 +47,7 @@ fluent-iterable - v0.3.4
 - [isArray](README.md#isarray)
 - [isAsyncIterable](README.md#isasynciterable)
 - [isBoolean](README.md#isboolean)
+- [isClass](README.md#isclass)
 - [isFalsy](README.md#isfalsy)
 - [isFunction](README.md#isfunction)
 - [isIterable](README.md#isiterable)
@@ -669,6 +670,20 @@ Name | Type |
 `t` | *any* |
 
 **Returns:** t is number
+
+___
+
+### isClass
+
+▸ **isClass**(`object`: *any*): object is AbstractClass<any\>
+
+#### Parameters:
+
+Name | Type |
+:------ | :------ |
+`object` | *any* |
+
+**Returns:** object is AbstractClass<any\>
 
 ___
 
