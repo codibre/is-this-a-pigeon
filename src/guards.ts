@@ -1,4 +1,10 @@
-import { AnyIterable, Func, Lenghtable, Sizeable } from './types';
+import {
+	AbstractClass,
+	AnyIterable,
+	Func,
+	Lenghtable,
+	Sizeable,
+} from './types';
 
 export function isPromiseLike(t: any): t is PromiseLike<any> {
 	return !!(t && typeof t.then === 'function');
@@ -131,4 +137,8 @@ export function isKeyOf<T extends Object>(
 	target: T,
 ): key is keyof T {
 	return target && hasProperty(target, key);
+}
+
+export function isClass(object: any): object is AbstractClass<any> {
+	return typeof object === 'function' && typeof object.prototype === 'object';
 }

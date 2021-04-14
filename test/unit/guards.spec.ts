@@ -11,6 +11,7 @@ import {
 	isArray,
 	isAsyncIterable,
 	isBoolean,
+	isClass,
 	isFalsy,
 	isFunction,
 	isIterable,
@@ -564,6 +565,36 @@ describe('guards.ts', () => {
 			}
 
 			expect(result).toBe(1);
+		});
+
+		it('should return false when value is not a key of target', () => {
+			let result = 0;
+			const target = { a: 1 };
+			const value: string = 'b';
+
+			if (isKeyOf(value, target)) {
+				result = target[value];
+			}
+
+			expect(result).toBe(0);
+		});
+	});
+
+	describe(isClass.name, () => {
+		it('should return true when value is a class', () => {
+			class Test {}
+
+			const result = isClass(Test);
+
+			expect(result).toBe(true);
+		});
+
+		it('should return true when value is a class', () => {
+			class Test {}
+
+			const result = isClass(new Test());
+
+			expect(result).toBe(false);
 		});
 	});
 
