@@ -1,5 +1,8 @@
 
-## 0.3.5
+## 0.3.6
+* 3fb8af4 bettering is class
+## v0.3.5
+* f0299f9 0.3.5
 * a161296 adding isClass guard
 ## v0.3.4
 * 3e83db3 0.3.4

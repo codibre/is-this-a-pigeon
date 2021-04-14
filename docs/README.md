@@ -1,6 +1,6 @@
-fluent-iterable - v0.3.5
+fluent-iterable - v0.3.6
 
-# fluent-iterable - v0.3.5
+# fluent-iterable - v0.3.6
 
 ## Table of contents
 
@@ -675,7 +675,7 @@ ___
 
 ### isClass
 
-▸ **isClass**(`object`: *any*): object is AbstractClass<any\>
+▸ **isClass**(`object`: *any*): object is Class<any\>
 
 #### Parameters:
 
@@ -683,7 +683,7 @@ Name | Type |
 :------ | :------ |
 `object` | *any* |
 
-**Returns:** object is AbstractClass<any\>
+**Returns:** object is Class<any\>
 
 ___
 
