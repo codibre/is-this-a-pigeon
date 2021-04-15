@@ -1,5 +1,8 @@
 
-## 0.3.6
+## 0.4.0
+* 71ac34b adding KeysOfType and ClassMethod
+## v0.3.6
+* 36ac762 0.3.6
 * 3fb8af4 bettering is class
 ## v0.3.5
 * f0299f9 0.3.5

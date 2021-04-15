@@ -1,6 +1,6 @@
-fluent-iterable - v0.3.6
+fluent-iterable - v0.4.0
 
-# fluent-iterable - v0.3.6
+# fluent-iterable - v0.4.0
 
 ## Table of contents
 
@@ -13,8 +13,10 @@ fluent-iterable - v0.3.6
 - [Args](README.md#args)
 - [AsyncIterableItem](README.md#asynciterableitem)
 - [Class](README.md#class)
+- [ClassMethod](README.md#classmethod)
 - [Func](README.md#func)
 - [IterableItem](README.md#iterableitem)
+- [KeysOfType](README.md#keysoftype)
 - [Lenghtable](README.md#lenghtable)
 - [Primitive](README.md#primitive)
 - [Sizeable](README.md#sizeable)
@@ -170,6 +172,19 @@ Name | Type |
 
 ___
 
+### ClassMethod
+
+Ƭ **ClassMethod**<T, K\>: T[K]
+
+#### Type parameters:
+
+Name | Type |
+:------ | :------ |
+`T` | Object |
+`K` | [*KeysOfType*](README.md#keysoftype)<T, [*Func*](README.md#func)\> |
+
+___
+
 ### Func
 
 Ƭ **Func**<A, R\>: (...`args`: A) => R
@@ -204,6 +219,19 @@ ___
 Name |
 :------ |
 `T` |
+
+___
+
+### KeysOfType
+
+Ƭ **KeysOfType**<T, V\>: { [K in keyof T]-?: T[K] extends V ? K : never}[keyof T]
+
+#### Type parameters:
+
+Name |
+:------ |
+`T` |
+`V` |
 
 ___
 
