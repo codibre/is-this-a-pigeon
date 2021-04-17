@@ -1,5 +1,7 @@
 
-## 0.4.0
+## 0.4.1
+## v0.4.0
+* be5dcc5 0.4.0
 * 71ac34b adding KeysOfType and ClassMethod
 ## v0.3.6
 * 36ac762 0.3.6
