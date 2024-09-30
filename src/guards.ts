@@ -50,16 +50,16 @@ export function isFunction(t: any): t is Func {
 	return typeof t === 'function';
 }
 
-export function isNull(t: any): t is null {
+export function isNull<T>(t: T | null): t is null {
 	return t === null;
 }
 
-export function isFalsy(t: any): boolean {
-	return !t;
+export function isUndefined<T>(t: T | undefined): t is undefined {
+	return t === undefined;
 }
 
-export function isTruthy(t: any): boolean {
-	return !!t;
+export function isNullish<T>(t: T | undefined | null): t is null {
+	return t == null || t === undefined;
 }
 
 export function hasProperty<P extends string | symbol | number>(
@@ -135,4 +135,12 @@ export function isKeyOf<T extends Object>(
 
 export function isClass(object: any): object is Class<any> {
 	return typeof object === 'function' && typeof object.prototype === 'object';
+}
+
+export function isFalsy(t: any): boolean {
+	return !t;
+}
+
+export function isTruthy(t: any): boolean {
+	return !!t;
 }
