@@ -1,3 +1,10 @@
+## [0.5.1](https://github.com/codibre/is-this-a-pigeon/compare/v0.5.0...v0.5.1) (2024-10-01)
+
+
+### Bug Fixes
+
+* fixing types ([ef99ff7](https://github.com/codibre/is-this-a-pigeon/commit/ef99ff712d1f63db4ec116d21d2e18733685a5bd))
+
 # [0.5.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.4.1...v0.5.0) (2024-10-01)
 
 

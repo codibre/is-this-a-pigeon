@@ -227,34 +227,9 @@ export function assertInstanceOf<T>(
 	assert(object, (t: unknown): t is T => t instanceof type, errorCallOrMessage);
 }
 
-export function assertHasProperty<
-	T extends object,
-	K extends keyof T,
-	R extends T[K],
->(
-	t: T,
-	prop: K,
-): asserts t is {
-	[k in K]: unknown;
-};
 export function assertHasProperty<P extends string | symbol | number>(
 	t: any,
 	prop: P,
-): asserts t is {
-	[k in P]: unknown;
-};
-export function assertHasProperty<P extends string | symbol | number>(
-	t: any,
-	prop: P,
-): asserts t is {
-	[k in P]: unknown;
-} {
-	assertNotProperty(t, prop, isNullish);
-}
-
-export function assertHasProperties<P extends string | symbol | number>(
-	t: any,
-	prop: P[],
 ): asserts t is {
 	[k in P]: unknown;
 } {
