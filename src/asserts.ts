@@ -1,6 +1,5 @@
 import {
 	hasLength,
-	hasProperty,
 	hasSize,
 	isAnyIterable,
 	isArray,
@@ -18,14 +17,7 @@ import {
 	isString,
 	isUndefined,
 } from './guards';
-import {
-	AnyIterable,
-	Class,
-	Func,
-	Lenghtable,
-	ObjectKeyType,
-	Sizeable,
-} from './types';
+import { AnyIterable, Class, Func, Lenghtable, Sizeable } from './types';
 
 type AssertError = string | Func<[], unknown>;
 
@@ -38,17 +30,17 @@ function throwError(errorCallOrMessage: AssertError): never {
 export function assert<T, R extends T>(
 	v: T,
 	check: (x: T) => x is R,
-	errorCallOrMessage: AssertError = 'invalid type',
+	errorCallOrMessage?: AssertError,
 ): asserts v is R {
-	if (!check(v)) throwError(errorCallOrMessage);
+	if (!check(v)) throwError(errorCallOrMessage ?? 'invalid type');
 }
 
 export function assertNot<T, R extends T>(
 	v: T,
 	check: (x: T) => x is R,
-	errorCallOrMessage: AssertError = 'invalid type',
+	errorCallOrMessage?: AssertError,
 ): asserts v is Exclude<T, R> {
-	if (check(v)) throwError(errorCallOrMessage);
+	if (check(v)) throwError(errorCallOrMessage ?? 'invalid type');
 }
 
 export function assertProperty<
@@ -60,23 +52,31 @@ export function assertProperty<
 	k: K,
 	check: (x: T[K]) => x is R,
 	errorCallOrMessage?: AssertError,
-): asserts v is T & { [x in K]: R };
-export function assertProperty<K extends keyof ObjectKeyType, R>(
-	v: any,
-	k: K,
-	check: (x: any) => x is R,
-	errorCallOrMessage: AssertError = `invalid property ${k.toString()}`,
-): asserts v is { [x in K]: R } {
-	if (!check(v[k])) throwError(errorCallOrMessage);
+): asserts v is T & { [x in K]: R } {
+	if (!check(v[k]))
+		throwError(errorCallOrMessage ?? `invalid property ${k.toString()}`);
+}
+
+export function assertAndGetProperty<
+	T extends object,
+	K extends keyof T,
+	R extends T[K],
+>(v: T, k: K, check: (x: T[K]) => x is R, errorCallOrMessage?: AssertError): R {
+	const value = v[k];
+	if (!check(value)) {
+		throwError(errorCallOrMessage ?? `invalid property ${k.toString()}`);
+	}
+	return value;
 }
 
 export function assertNotProperty<T, K extends keyof T, R extends T>(
 	v: T,
 	k: K,
 	check: (x: T, k: K) => x is T & { [x in K]: R },
-	errorCallOrMessage: AssertError = `invalid property ${k.toString()}`,
+	errorCallOrMessage?: AssertError,
 ): asserts v is T & { [x in K]: Exclude<T[K], R> } {
-	if (check(v, k)) throwError(errorCallOrMessage);
+	if (check(v, k))
+		throwError(errorCallOrMessage ?? `invalid property ${k.toString()}`);
 }
 
 export function assertPromiseLike(
