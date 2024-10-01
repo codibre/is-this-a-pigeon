@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "rootDir": ".",
     "strict": true,
-    "module": "commonjs",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "declaration": true,
@@ -10,14 +11,39 @@
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "importsNotUsedAsValues":"remove",
-    "target": "es2018",
-    "sourceMap": false,
+    "importsNotUsedAsValues": "remove",
+    "target": "es2023",
+    "sourceMap": true,
     "outDir": "./dist",
     "noImplicitAny": true,
     "alwaysStrict": true,
+    "useUnknownInCatchVariables": false,
     "strictBindCallApply": true,
     "strictFunctionTypes": true,
+    "noUncheckedIndexedAccess": true,
+    "noUncheckedSideEffectImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "checkJs": true,
+    "declarationMap": true,
+    "pretty": true,
+    "paths": {
+      "src/*": [
+        "./src/*"
+      ],
+      "test/*": [
+        "./test/*",
+      ]
+    }
   },
-  "include": ["./src", "./test"]
+  "include": [
+    "src",
+    "test",
+    "jest.config.js",
+    "eslint.config.mjs"
+  ],
+  "exclude": [
+    "dist"
+  ]
 }
