@@ -1,3 +1,10 @@
+# [0.6.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.5.2...v0.6.0) (2024-10-01)
+
+
+### Features
+
+* introducing assert and get property ([f6de1c3](https://github.com/codibre/is-this-a-pigeon/commit/f6de1c344fb451258ce6c97e1cca5afb1c5e48b5))
+
 ## [0.5.2](https://github.com/codibre/is-this-a-pigeon/compare/v0.5.1...v0.5.2) (2024-10-01)
 
 
