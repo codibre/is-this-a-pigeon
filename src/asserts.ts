@@ -1,5 +1,6 @@
 import {
 	hasLength,
+	hasProperty,
 	hasSize,
 	isAnyIterable,
 	isArray,
@@ -50,13 +51,23 @@ export function assertNot<T, R extends T>(
 	if (check(v)) throwError(errorCallOrMessage);
 }
 
+export function assertProperty<
+	T extends object,
+	K extends keyof T,
+	R extends T[K],
+>(
+	v: T,
+	k: K,
+	check: (x: T[K]) => x is R,
+	errorCallOrMessage?: AssertError,
+): asserts v is T & { [x in K]: R };
 export function assertProperty<K extends keyof ObjectKeyType, R>(
 	v: any,
 	k: K,
-	check: (x: any, k: K) => x is { [x in K]: R },
+	check: (x: any) => x is R,
 	errorCallOrMessage: AssertError = `invalid property ${k.toString()}`,
 ): asserts v is { [x in K]: R } {
-	if (!check(v, k)) throwError(errorCallOrMessage);
+	if (!check(v[k])) throwError(errorCallOrMessage);
 }
 
 export function assertNotProperty<T, K extends keyof T, R extends T>(
@@ -206,4 +217,46 @@ export function assertClass(
 	errorCallOrMessage: AssertError = 'not a class',
 ): asserts object is Class<any> {
 	assert(object, isClass, errorCallOrMessage);
+}
+
+export function assertInstanceOf<T>(
+	object: any,
+	type: Class<T>,
+	errorCallOrMessage: AssertError = 'not a class',
+): asserts object is T {
+	assert(object, (t: unknown): t is T => t instanceof type, errorCallOrMessage);
+}
+
+export function assertHasProperty<
+	T extends object,
+	K extends keyof T,
+	R extends T[K],
+>(
+	t: T,
+	prop: K,
+): asserts t is {
+	[k in K]: unknown;
+};
+export function assertHasProperty<P extends string | symbol | number>(
+	t: any,
+	prop: P,
+): asserts t is {
+	[k in P]: unknown;
+};
+export function assertHasProperty<P extends string | symbol | number>(
+	t: any,
+	prop: P,
+): asserts t is {
+	[k in P]: unknown;
+} {
+	assertNotProperty(t, prop, isNullish);
+}
+
+export function assertHasProperties<P extends string | symbol | number>(
+	t: any,
+	prop: P[],
+): asserts t is {
+	[k in P]: unknown;
+} {
+	assertNotProperty(t, prop, isNullish);
 }

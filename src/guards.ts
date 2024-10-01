@@ -71,6 +71,22 @@ export function hasProperty<P extends string | symbol | number>(
 	return t && t[prop] !== undefined;
 }
 
+export function hasTruthyProperty<
+	T extends object,
+	K extends keyof T,
+	R extends T[K],
+>(
+	t: T,
+	prop: K,
+): t is T & {
+	[k in K]: R;
+};
+export function hasTruthyProperty<P extends string | symbol | number>(
+	t: any,
+	prop: P,
+): t is {
+	[k in P]: unknown;
+};
 export function hasTruthyProperty<P extends string | symbol | number>(
 	t: any,
 	prop: P,
