@@ -1,5 +1,6 @@
 import {
 	hasLength,
+	hasProperty,
 	hasSize,
 	isAnyIterable,
 	isArray,
@@ -17,7 +18,14 @@ import {
 	isString,
 	isUndefined,
 } from './guards';
-import { AnyIterable, Class, Func, Lenghtable, Sizeable } from './types';
+import {
+	AnyIterable,
+	Class,
+	Func,
+	Lenghtable,
+	ObjectKeyType,
+	Sizeable,
+} from './types';
 
 type AssertError = string | Func<[], unknown>;
 
@@ -69,13 +77,13 @@ export function assertAndGetProperty<
 	return value;
 }
 
-export function assertNotProperty<T, K extends keyof T, R extends T>(
+export function assertNotProperty<T, K extends keyof T, R extends T[K]>(
 	v: T,
 	k: K,
-	check: (x: T, k: K) => x is T & { [x in K]: R },
+	check: (x: T[K]) => x is R,
 	errorCallOrMessage?: AssertError,
 ): asserts v is T & { [x in K]: Exclude<T[K], R> } {
-	if (check(v, k))
+	if (check(v[k]))
 		throwError(errorCallOrMessage ?? `invalid property ${k.toString()}`);
 }
 
@@ -227,11 +235,44 @@ export function assertInstanceOf<T>(
 	assert(object, (t: unknown): t is T => t instanceof type, errorCallOrMessage);
 }
 
-export function assertHasProperty<P extends string | symbol | number>(
+export function assertHasProperty<T extends object, K extends keyof T>(
+	t: T,
+	prop: K,
+): asserts t is T & {
+	[k in K]: NonNullable<T[k]>;
+};
+export function assertHasProperty<P extends ObjectKeyType>(
+	t: any,
+	prop: P,
+): asserts t is {
+	[k in P]: unknown;
+};
+export function assertHasProperty<P extends ObjectKeyType>(
 	t: any,
 	prop: P,
 ): asserts t is {
 	[k in P]: unknown;
 } {
 	assertNotProperty(t, prop, isNullish);
+}
+
+export function assertHasProperties<T extends object, K extends keyof T>(
+	t: T,
+	prop: K,
+): asserts t is T & {
+	[k in K]: NonNullable<T[k]>;
+};
+export function assertHasProperties<P extends ObjectKeyType>(
+	t: any,
+	prop: P,
+): asserts t is {
+	[k in P]: unknown;
+};
+export function assertHasProperties<P extends ObjectKeyType>(
+	t: any,
+	props: P[],
+): asserts t is {
+	[k in P]: unknown;
+} {
+	for (const prop of props) assertNotProperty(t, prop, isNullish);
 }

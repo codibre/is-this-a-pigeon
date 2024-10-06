@@ -1,4 +1,11 @@
-import { AnyIterable, Class, Func, Lenghtable, Sizeable } from './types';
+import {
+	AnyIterable,
+	Class,
+	Func,
+	Lenghtable,
+	ObjectKeyType,
+	Sizeable,
+} from './types';
 
 export function isPromiseLike(t: any): t is PromiseLike<any> {
 	return !!(t && typeof t.then === 'function');
@@ -62,7 +69,19 @@ export function isNullish<T>(t: T | undefined | null): t is null {
 	return t == null || t === undefined;
 }
 
-export function hasProperty<P extends string | symbol | number>(
+export function hasProperty<T extends object, K extends keyof T>(
+	t: T,
+	prop: K,
+): t is T & {
+	[k in K]: NonNullable<T[K]>;
+};
+export function hasProperty<P extends ObjectKeyType>(
+	t: any,
+	prop: P,
+): t is {
+	[k in P]: unknown;
+};
+export function hasProperty<P extends ObjectKeyType>(
 	t: any,
 	prop: P,
 ): t is {
@@ -71,23 +90,19 @@ export function hasProperty<P extends string | symbol | number>(
 	return t && t[prop] !== undefined;
 }
 
-export function hasTruthyProperty<
-	T extends object,
-	K extends keyof T,
-	R extends T[K],
->(
+export function hasTruthyProperty<T extends object, K extends keyof T>(
 	t: T,
 	prop: K,
 ): t is T & {
-	[k in K]: R;
+	[k in K]: NonNullable<T[k]>;
 };
-export function hasTruthyProperty<P extends string | symbol | number>(
+export function hasTruthyProperty<P extends ObjectKeyType>(
 	t: any,
 	prop: P,
 ): t is {
 	[k in P]: unknown;
 };
-export function hasTruthyProperty<P extends string | symbol | number>(
+export function hasTruthyProperty<P extends ObjectKeyType>(
 	t: any,
 	prop: P,
 ): t is {
@@ -96,7 +111,19 @@ export function hasTruthyProperty<P extends string | symbol | number>(
 	return t && !!t[prop];
 }
 
-export function hasProperties<T extends string | symbol | number>(
+export function hasProperties<T extends object, K extends keyof T>(
+	t: T,
+	...args: K[]
+): t is T & {
+	[k in K]: NonNullable<T[k]>;
+};
+export function hasProperties<T extends ObjectKeyType>(
+	t: any,
+	...args: T[]
+): t is {
+	[k in T]: unknown;
+};
+export function hasProperties<T extends ObjectKeyType>(
 	t: any,
 	...args: T[]
 ): t is {
@@ -105,7 +132,7 @@ export function hasProperties<T extends string | symbol | number>(
 	return t && args.every((x) => t[x] !== undefined);
 }
 
-export function hasTruthyProperties<T extends string | symbol | number>(
+export function hasTruthyProperties<T extends ObjectKeyType>(
 	t: any,
 	...args: T[]
 ): t is {
@@ -114,7 +141,7 @@ export function hasTruthyProperties<T extends string | symbol | number>(
 	return t && args.every((x) => t[x]);
 }
 
-export function hasMethod<T extends string | symbol | number>(
+export function hasMethod<T extends ObjectKeyType>(
 	t: any,
 	method: T,
 ): t is {
@@ -123,7 +150,7 @@ export function hasMethod<T extends string | symbol | number>(
 	return t && isFunction(t[method]);
 }
 
-export function hasMethods<T extends string | symbol | number>(
+export function hasMethods<T extends ObjectKeyType>(
 	t: any,
 	...args: T[]
 ): t is {

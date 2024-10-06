@@ -16,6 +16,7 @@ import {
 	assertPromiseLike,
 	assertString,
 	assertUndefined,
+	assertHasProperty,
 } from '../../src';
 
 describe('guards.ts', () => {
@@ -435,6 +436,26 @@ describe('guards.ts', () => {
 
 			try {
 				assertArray('123');
+			} catch (err) {
+				thrownError = err;
+			}
+
+			expect(thrownError).toBeDefined();
+		});
+	});
+
+	describe(assertHasProperty.name, () => {
+		it('should return true when informed value has informed property', () => {
+			const result = assertHasProperty({ size: 'a' }, 'size');
+
+			expect(result).toBeUndefined();
+		});
+
+		it('should return false when informed value does not has informed property', () => {
+			let thrownError: any;
+
+			try {
+				assertHasProperty({ length: 'a' }, 'size');
 			} catch (err) {
 				thrownError = err;
 			}
