@@ -19,3 +19,4 @@ export type ClassMethod<
 T extends Object,
 K extends KeysOfType<T, Func>
 > = T[K];
+export type Nullable<T> = T | undefined | null;

@@ -1,6 +1,5 @@
 import {
 	hasLength,
-	hasProperty,
 	hasSize,
 	isAnyIterable,
 	isArray,
@@ -22,7 +21,9 @@ import {
 	AnyIterable,
 	Class,
 	Func,
+	KeysOfType,
 	Lenghtable,
+	Nullable,
 	ObjectKeyType,
 	Sizeable,
 } from './types';
@@ -63,6 +64,32 @@ export function assertProperty<
 ): asserts v is T & { [x in K]: R } {
 	if (!check(v[k]))
 		throwError(errorCallOrMessage ?? `invalid property ${k.toString()}`);
+}
+
+export function assertProperties<
+	T extends object,
+	K extends keyof T,
+	R extends T[K],
+>(
+	v: T,
+	keys: K[],
+	check: (x: T[K]) => x is R,
+	errorCallOrMessage?: AssertError,
+): asserts v is T & { [x in K]: R } {
+	for (const k of keys) assertProperty(v, k, check, errorCallOrMessage);
+}
+
+export function assertNotProperties<
+	T extends object,
+	K extends keyof T,
+	R extends T[K],
+>(
+	v: T,
+	keys: K[],
+	check: (x: T[K]) => x is R,
+	errorCallOrMessage?: AssertError,
+): asserts v is T & { [x in K]: R } {
+	for (const k of keys) assertNotProperty(v, k, check, errorCallOrMessage);
 }
 
 export function assertAndGetProperty<
@@ -186,14 +213,14 @@ export function assertDefined<T>(
 }
 
 export function assertNullish<T>(
-	t: T | undefined | null,
+	t: Nullable<T>,
 	errorCallOrMessage: AssertError = 'non nullish value',
 ): asserts t is null | undefined {
 	assert(t, isNullish, errorCallOrMessage);
 }
 
 export function assertNonNullish<T>(
-	t: T | undefined | null,
+	t: Nullable<T>,
 	errorCallOrMessage: AssertError = 'null or undefined value',
 ): asserts t is T {
 	assertNot(t, isNullish, errorCallOrMessage);
@@ -258,21 +285,69 @@ export function assertHasProperty<P extends ObjectKeyType>(
 
 export function assertHasProperties<T extends object, K extends keyof T>(
 	t: T,
-	prop: K,
+	prop: K[],
 ): asserts t is T & {
 	[k in K]: NonNullable<T[k]>;
 };
-export function assertHasProperties<P extends ObjectKeyType>(
+export function assertHasProperties<K extends ObjectKeyType>(
+	t: any,
+	prop: K[],
+): asserts t is {
+	[k in K]: unknown;
+};
+export function assertHasProperties<K extends ObjectKeyType>(
+	t: any,
+	props: K[],
+): asserts t is {
+	[k in K]: unknown;
+} {
+	assertNotProperties(t, props, isNullish);
+}
+
+export function assertStringProperty<
+	T extends object,
+	K extends KeysOfType<T, Nullable<string>>,
+>(
+	t: T,
+	prop: K,
+): asserts t is T & {
+	[k in K]: string;
+};
+export function assertStringProperty<P extends ObjectKeyType>(
 	t: any,
 	prop: P,
 ): asserts t is {
-	[k in P]: unknown;
+	[k in P]: string;
 };
-export function assertHasProperties<P extends ObjectKeyType>(
+export function assertStringProperty<P extends ObjectKeyType>(
 	t: any,
-	props: P[],
+	prop: P,
 ): asserts t is {
-	[k in P]: unknown;
+	[k in P]: string;
 } {
-	for (const prop of props) assertNotProperty(t, prop, isNullish);
+	assertProperty(t, prop, isString);
+}
+
+export function assertStringProperties<
+	T extends object,
+	K extends KeysOfType<T, Nullable<string>>,
+>(
+	t: T,
+	prop: K[],
+): asserts t is T & {
+	[k in K]: string;
+};
+export function assertStringProperties<K extends ObjectKeyType>(
+	t: any,
+	prop: K[],
+): asserts t is {
+	[k in K]: string;
+};
+export function assertStringProperties<K extends ObjectKeyType>(
+	t: any,
+	props: K[],
+): asserts t is {
+	[k in K]: string;
+} {
+	assertProperties(t, props, isString);
 }

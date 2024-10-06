@@ -3,6 +3,7 @@ import {
 	Class,
 	Func,
 	Lenghtable,
+	Nullable,
 	ObjectKeyType,
 	Sizeable,
 } from './types';
@@ -57,16 +58,20 @@ export function isFunction(t: any): t is Func {
 	return typeof t === 'function';
 }
 
-export function isNull<T>(t: T | null): t is null {
+export function isNull<T>(t: Nullable<T>): t is null {
 	return t === null;
 }
 
-export function isUndefined<T>(t: T | undefined): t is undefined {
+export function isUndefined<T>(t: Nullable<T>): t is undefined {
 	return t === undefined;
 }
 
-export function isNullish<T>(t: T | undefined | null): t is null {
+export function isNullish<T>(t: Nullable<T>): t is null {
 	return t == null || t === undefined;
+}
+
+export function isNonNullish<T>(t: Nullable<T>): t is NonNullable<T> {
+	return t !== null && t !== undefined;
 }
 
 export function hasProperty<T extends object, K extends keyof T>(
