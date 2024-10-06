@@ -1,3 +1,10 @@
+# [0.7.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.6.0...v0.7.0) (2024-10-06)
+
+
+### Features
+
+* creating get defined property ([b974a33](https://github.com/codibre/is-this-a-pigeon/commit/b974a339886f299e8172c9079e02c93d9d317dc4))
+
 # [0.6.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.5.2...v0.6.0) (2024-10-01)
 
 
