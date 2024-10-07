@@ -1,3 +1,10 @@
+# [0.8.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.7.0...v0.8.0) (2024-10-07)
+
+
+### Features
+
+* creating assertAndGetNonNullish ([83186f0](https://github.com/codibre/is-this-a-pigeon/commit/83186f04fba57c0d48b0986b59199bbf3099aae7))
+
 # [0.7.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.6.0...v0.7.0) (2024-10-06)
 
 
