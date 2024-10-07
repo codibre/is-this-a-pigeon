@@ -1,7 +1,10 @@
-import { assertAndGetProperty } from './asserts';
+import { assertAndGet, assertAndGetProperty } from './asserts';
 import { isNonNullish, isString } from './guards';
 import { KeysOfType, Nullable, ObjectKeyType } from './types';
 
+export function assertAndGetNonNullish<T>(value: Nullable<T>): NonNullable<T> {
+	return assertAndGet(value, isNonNullish);
+}
 export function getDefinedProperty<T extends object, K extends keyof T>(
 	obj: T,
 	prop: K,

@@ -1,4 +1,8 @@
-import { assertAndGetStringProperty, getDefinedProperty } from '../../src';
+import {
+	assertAndGetNonNullish,
+	assertAndGetStringProperty,
+	getDefinedProperty,
+} from '../../src';
 
 describe('getters.ts', () => {
 	describe(getDefinedProperty.name, () => {
@@ -33,6 +37,38 @@ describe('getters.ts', () => {
 
 			try {
 				assertAndGetStringProperty({ size: 123 }, 'size' as any);
+			} catch (err) {
+				thrownError = err;
+			}
+
+			expect(thrownError).toBeDefined();
+		});
+	});
+
+	describe(assertAndGetNonNullish.name, () => {
+		it('should return value when non nullish', () => {
+			const result = assertAndGetNonNullish('abc');
+
+			expect(result).toBe('abc');
+		});
+
+		it('should throw an error when informed value is null', () => {
+			let thrownError: any;
+
+			try {
+				assertAndGetNonNullish(null);
+			} catch (err) {
+				thrownError = err;
+			}
+
+			expect(thrownError).toBeDefined();
+		});
+
+		it('should throw an error when informed value is undefined', () => {
+			let thrownError: any;
+
+			try {
+				assertAndGetNonNullish(undefined);
 			} catch (err) {
 				thrownError = err;
 			}

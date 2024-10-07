@@ -44,6 +44,15 @@ export function assert<T, R extends T>(
 	if (!check(v)) throwError(errorCallOrMessage ?? 'invalid type');
 }
 
+export function assertAndGet<T, R extends T>(
+	v: T,
+	check: (x: T) => x is R,
+	errorCallOrMessage?: AssertError,
+): R {
+	assert(v, check, errorCallOrMessage);
+	return v;
+}
+
 export function assertNot<T, R extends T>(
 	v: T,
 	check: (x: T) => x is R,
