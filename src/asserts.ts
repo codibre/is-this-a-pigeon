@@ -274,9 +274,9 @@ export function assertInstanceOf<T>(
 export function assertHasProperty<T extends object, K extends keyof T>(
 	t: T,
 	prop: K,
-): asserts t is T & {
-	[k in K]: Required<T>[k];
-};
+): asserts t is T & Required<{
+	[k in K]: NonNullable<T[k]>;
+}>;
 export function assertHasProperty<P extends ObjectKeyType>(
 	t: any,
 	prop: P,
