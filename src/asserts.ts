@@ -275,7 +275,7 @@ export function assertHasProperty<T extends object, K extends keyof T>(
 	t: T,
 	prop: K,
 ): asserts t is T & {
-	[k in K]: NonNullable<T[k]>;
+	[k in K]: Required<T>[k];
 };
 export function assertHasProperty<P extends ObjectKeyType>(
 	t: any,
