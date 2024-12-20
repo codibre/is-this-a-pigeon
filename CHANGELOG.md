@@ -1,3 +1,10 @@
+# [0.9.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.8.2...v0.9.0) (2024-12-20)
+
+
+### Features
+
+* creating RequiredFields and RecursiveOmit types ([dba71f4](https://github.com/codibre/is-this-a-pigeon/commit/dba71f4fa0d0cc918edf80f98085c31449acf9c9))
+
 ## [0.8.2](https://github.com/codibre/is-this-a-pigeon/compare/v0.8.1...v0.8.2) (2024-12-20)
 
 
