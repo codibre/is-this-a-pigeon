@@ -25,6 +25,7 @@ import {
 	Lenghtable,
 	Nullable,
 	ObjectKeyType,
+	RequiredFields,
 	Sizeable,
 } from './types';
 
@@ -274,9 +275,7 @@ export function assertInstanceOf<T>(
 export function assertHasProperty<T extends object, K extends keyof T>(
 	t: T,
 	prop: K,
-): asserts t is T & Required<{
-	[k in K]: NonNullable<T[k]>;
-}>;
+): asserts t is RequiredFields<T, K>;
 export function assertHasProperty<P extends ObjectKeyType>(
 	t: any,
 	prop: P,

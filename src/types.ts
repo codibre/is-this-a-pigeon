@@ -20,3 +20,22 @@ T extends Object,
 K extends KeysOfType<T, Func>
 > = T[K];
 export type Nullable<T> = T | undefined | null;
+export type OmitFields<T, K extends keyof T> = Omit<T, K>;
+export type RequiredFields<T, K extends keyof T> = T & Required<{
+	[k in K]: NonNullable<T[k]>;
+}>
+
+export type RecursiveOmit<T, K extends ObjectKeyType> = T extends unknown[]
+  ? T extends (infer U)[]
+    ? RecursiveOmit<U, K>[]
+    : never
+  : Omit<
+      {
+        [P in keyof T]: P extends K | undefined
+          ? never
+          : T[P] extends object
+            ? RecursiveOmit<T[P], K>
+            : T[P];
+      },
+      K
+    >;
