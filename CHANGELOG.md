@@ -1,3 +1,10 @@
+## [0.8.2](https://github.com/codibre/is-this-a-pigeon/compare/v0.8.1...v0.8.2) (2024-12-20)
+
+
+### Bug Fixes
+
+* fixing assert has property ([f009d03](https://github.com/codibre/is-this-a-pigeon/commit/f009d0326b3367638db3bfb79b7108763d47119c))
+
 ## [0.8.1](https://github.com/codibre/is-this-a-pigeon/compare/v0.8.0...v0.8.1) (2024-12-20)
 
 
