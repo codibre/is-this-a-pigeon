@@ -58,6 +58,10 @@ export function isFunction(t: any): t is Func {
 	return typeof t === 'function';
 }
 
+export function isObject(t: unknown): t is {} {
+	return t !== null && typeof t === 'object';
+}
+
 export function isNull<T>(t: Nullable<T>): t is null {
 	return t === null;
 }
@@ -81,7 +85,7 @@ export function hasProperty<T extends object, K extends keyof T>(
 	[k in K]: NonNullable<T[K]>;
 };
 export function hasProperty<P extends ObjectKeyType>(
-	t: any,
+	t: unknown,
 	prop: P,
 ): t is {
 	[k in P]: unknown;
