@@ -1,3 +1,10 @@
+# [0.10.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.9.1...v0.10.0) (2024-12-21)
+
+
+### Features
+
+* adding is object ([7a53ad7](https://github.com/codibre/is-this-a-pigeon/commit/7a53ad78a26518667c53effcbcd75601b5d0ce93))
+
 ## [0.9.1](https://github.com/codibre/is-this-a-pigeon/compare/v0.9.0...v0.9.1) (2024-12-21)
 
 
