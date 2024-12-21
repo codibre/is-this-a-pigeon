@@ -1,3 +1,10 @@
+# [0.11.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.10.0...v0.11.0) (2024-12-21)
+
+
+### Features
+
+* crating assignEx ([38b7231](https://github.com/codibre/is-this-a-pigeon/commit/38b7231a94a3d1803ea3ca7cad9c4578df8b9348))
+
 # [0.10.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.9.1...v0.10.0) (2024-12-21)
 
 
