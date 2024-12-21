@@ -1,4 +1,4 @@
-import { hasLength } from './guards';
+import { hasLength, isObject } from './guards';
 import { Lenghtable, Sizeable } from './types';
 
 export function identity<T>(x: T) {
@@ -74,6 +74,12 @@ export function compareProp<K extends keyof T, T extends object = any>(
 	comparer: (t: T[K]) => boolean,
 ) {
 	return (t: T) => comparer(t[k]);
+}
+
+export function assignEx<A, B>(a: A, b: B): unknown extends A ? B : A & B {
+	return (isObject(a) ? Object.assign(a, b) : { ...b }) as unknown extends A
+		? B
+		: A & B;
 }
 
 export const nodeVersion = Number(process.versions.node.split('.')[0]);
