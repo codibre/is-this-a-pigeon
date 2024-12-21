@@ -1,3 +1,10 @@
+## [0.9.1](https://github.com/codibre/is-this-a-pigeon/compare/v0.9.0...v0.9.1) (2024-12-21)
+
+
+### Bug Fixes
+
+* adding error definition for getters ([b8a65a7](https://github.com/codibre/is-this-a-pigeon/commit/b8a65a714eedf1580d7a56cce1f071168c61ec1a))
+
 # [0.9.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.8.2...v0.9.0) (2024-12-20)
 
 
