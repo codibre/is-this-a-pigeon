@@ -39,3 +39,4 @@ export type RecursiveOmit<T, K extends ObjectKeyType> = T extends unknown[]
       },
       K
     >;
+export type AssertError = string | Func<[], unknown>;

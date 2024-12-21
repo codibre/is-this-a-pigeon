@@ -19,6 +19,7 @@ import {
 } from './guards';
 import {
 	AnyIterable,
+	AssertError,
 	Class,
 	Func,
 	KeysOfType,
@@ -28,8 +29,6 @@ import {
 	RequiredFields,
 	Sizeable,
 } from './types';
-
-type AssertError = string | Func<[], unknown>;
 
 function throwError(errorCallOrMessage: AssertError): never {
 	throw typeof errorCallOrMessage === 'function'
