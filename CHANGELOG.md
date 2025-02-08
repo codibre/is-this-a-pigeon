@@ -1,3 +1,10 @@
+# [0.12.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.11.0...v0.12.0) (2025-02-08)
+
+
+### Features
+
+* isFulfilled and isRejected ([f028fec](https://github.com/codibre/is-this-a-pigeon/commit/f028fec259c70b24bcbec6327b80ec826bdef3c4))
+
 # [0.11.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.10.0...v0.11.0) (2024-12-21)
 
 
