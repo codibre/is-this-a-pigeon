@@ -1,3 +1,10 @@
+## [0.12.1](https://github.com/codibre/is-this-a-pigeon/compare/v0.12.0...v0.12.1) (2025-03-13)
+
+
+### Bug Fixes
+
+* adding isProperty validation ([24ec42d](https://github.com/codibre/is-this-a-pigeon/commit/24ec42da5beea314603db4b562ad61a2489b0082))
+
 # [0.12.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.11.0...v0.12.0) (2025-02-08)
 
 
