@@ -1,3 +1,10 @@
+# [0.13.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.12.1...v0.13.0) (2025-03-14)
+
+
+### Features
+
+* adding getPropertyOrDefault ([6eb0d0c](https://github.com/codibre/is-this-a-pigeon/commit/6eb0d0c8a8dd992ce4b3d7fca584dee8fbe7ef75))
+
 ## [0.12.1](https://github.com/codibre/is-this-a-pigeon/compare/v0.12.0...v0.12.1) (2025-03-13)
 
 
