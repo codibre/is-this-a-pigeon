@@ -58,6 +58,16 @@ export function isString(t: any): t is string {
 	return typeof t === 'string';
 }
 
+export function isProperty<O extends object, K extends keyof O, T>(
+	t: any,
+	prop: K,
+	validation: (p: any) => p is T,
+): t is { [k in K]: T };
+export function isProperty<K extends string | number | symbol, T>(
+	t: any,
+	prop: K,
+	validation: (p: any) => p is T,
+): t is { [k in K]: T };
 export function isProperty<K extends string | number | symbol, T>(
 	t: any,
 	prop: K,

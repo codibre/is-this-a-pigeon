@@ -1,5 +1,5 @@
 import { assertAndGet, assertAndGetProperty } from './asserts';
-import { isNonNullish, isString } from './guards';
+import { isNonNullish, isProperty, isString } from './guards';
 import { AssertError, KeysOfType, Nullable, ObjectKeyType } from './types';
 
 export function assertAndGetNonNullish<T>(value: Nullable<T>): NonNullable<T> {
@@ -11,6 +11,25 @@ export function getDefinedProperty<T extends object, K extends keyof T>(
 	errorCallOrMessage?: AssertError,
 ): NonNullable<T[K]> {
 	return assertAndGetProperty(obj, prop, isNonNullish, errorCallOrMessage);
+}
+
+export function getPropertyOrDefault<
+	O extends object,
+	K extends keyof O,
+	T,
+	D extends T,
+>(obj: O, prop: K, validation: (v: unknown) => v is T, def: D): T;
+export function getPropertyOrDefault<
+	K extends string | symbol | number,
+	T,
+	D extends T,
+>(obj: unknown, prop: K, validation: (v: unknown) => v is T, def: D): T;
+export function getPropertyOrDefault<
+	K extends string | symbol | number,
+	T,
+	D extends T,
+>(obj: unknown, prop: K, validation: (v: unknown) => v is T, def: D): T {
+	return isProperty(obj, prop, validation) ? obj[prop] : def;
 }
 
 export function assertAndGetStringProperty<
