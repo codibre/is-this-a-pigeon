@@ -1,3 +1,10 @@
+# [0.14.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.13.0...v0.14.0) (2025-03-19)
+
+
+### Features
+
+* creating or, and and isError guards ([bf343be](https://github.com/codibre/is-this-a-pigeon/commit/bf343be2f561abbf3392204ada7b5acb953e531b))
+
 # [0.13.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.12.1...v0.13.0) (2025-03-14)
 
 
