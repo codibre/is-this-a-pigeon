@@ -73,7 +73,7 @@ export function isProperty<K extends string | number | symbol, T>(
 	prop: K,
 	validation: (p: any) => p is T,
 ): t is { [k in K]: T } {
-	return prop in t && validation(t[prop]);
+	return validation(t?.[prop]);
 }
 
 export function isNumber(t: any): t is number {
@@ -225,4 +225,26 @@ export function isFalsy(t: any): boolean {
 
 export function isTruthy(t: any): boolean {
 	return !!t;
+}
+
+export function or<A, B>(
+	validation1: (t: unknown) => t is A,
+	validation2: (t: unknown) => t is B,
+) {
+	return (t: unknown): t is A | B => validation1(t) || validation2(t);
+}
+
+export function and<A, B>(
+	validation1: (t: unknown) => t is A,
+	validation2: (t: unknown) => t is B,
+) {
+	return (t: unknown): t is A & B => validation1(t) && validation2(t);
+}
+
+export function isError(value: unknown): value is Error {
+	return (
+		isObject(value) &&
+		isProperty(value, 'message', isString) &&
+		isProperty(value, 'stack', or(isString, isUndefined))
+	);
 }
