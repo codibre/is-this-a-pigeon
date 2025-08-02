@@ -1,3 +1,10 @@
+# [0.15.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.14.0...v0.15.0) (2025-08-02)
+
+
+### Features
+
+* creating tryRequire ([f3136e2](https://github.com/codibre/is-this-a-pigeon/commit/f3136e26f6d49520520141a41476a89d1e1696c8))
+
 # [0.14.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.13.0...v0.14.0) (2025-03-19)
 
 
