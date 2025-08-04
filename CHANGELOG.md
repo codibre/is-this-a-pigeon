@@ -1,3 +1,10 @@
+## [0.19.1](https://github.com/codibre/is-this-a-pigeon/compare/v0.19.0...v0.19.1) (2025-08-04)
+
+
+### Bug Fixes
+
+* using array for StringBuilder ([33222d8](https://github.com/codibre/is-this-a-pigeon/commit/33222d83ca2640d815e54d11780f7941d79d3d6d))
+
 # [0.19.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.18.0...v0.19.0) (2025-08-04)
 
 
