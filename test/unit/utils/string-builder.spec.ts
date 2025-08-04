@@ -56,7 +56,7 @@ describe(StringBuilder.name, () => {
 		sb.appendIf(false, 'a').appendIf(true, 'b').appendIf(true, 'c');
 		// Assert
 		expect(sb.toString()).toBe('bc');
-		expect(sb.count).toBe(3);
+		expect(sb.count).toBe(2);
 	});
 
 	it('should appendIf elseAdd when condition is false and elseAdd is provided', () => {
@@ -72,7 +72,7 @@ describe(StringBuilder.name, () => {
 		// Act
 		sb.prependIf(false, 'a').prependIf(true, 'b').prependIf(true, 'c');
 		// Assert
-		expect(sb.count).toBe(0);
+		expect(sb.count).toBe(2);
 		expect(sb.toString()).toBe('cb');
 	});
 

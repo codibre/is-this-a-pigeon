@@ -8,6 +8,13 @@ export class StringBuilder {
 	private list = new LinkedList<unknown>();
 
 	/**
+	 * Returns the number of elements in the builder.
+	 */
+	get count(): number {
+		return this.list.length;
+	}
+
+	/**
 	 * Appends a string to the end of the builder.
 	 *
 	 * @param str - String to append
@@ -52,16 +59,12 @@ export class StringBuilder {
 	 * @returns The StringBuilder instance (for fluent interface)
 	 */
 	prependIf(condition: boolean, str: unknown, elseAdd?: unknown): this {
-		if (condition) this.prepend(str);
-		else if (arguments.length > 2) this.prepend(elseAdd);
+		if (condition) {
+			this.prepend(str);
+		} else if (arguments.length > 2) {
+			this.prepend(elseAdd);
+		}
 		return this;
-	}
-
-	/**
-	 * Returns the number of elements in the builder.
-	 */
-	get count(): number {
-		return this.list.length;
 	}
 
 	/**
