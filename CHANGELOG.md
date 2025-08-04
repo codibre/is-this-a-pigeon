@@ -1,3 +1,10 @@
+# [0.17.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.16.1...v0.17.0) (2025-08-04)
+
+
+### Features
+
+* appendIf and prependIf ([39166a7](https://github.com/codibre/is-this-a-pigeon/commit/39166a7b546b0c06055a3f68c4262c0c0f52d294))
+
 ## [0.16.1](https://github.com/codibre/is-this-a-pigeon/compare/v0.16.0...v0.16.1) (2025-08-04)
 
 
