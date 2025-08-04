@@ -1,3 +1,10 @@
+## [0.16.1](https://github.com/codibre/is-this-a-pigeon/compare/v0.16.0...v0.16.1) (2025-08-04)
+
+
+### Bug Fixes
+
+* documenting new classes ([b158c0a](https://github.com/codibre/is-this-a-pigeon/commit/b158c0a81cf337ff7eed74276381f7b95f9910b7))
+
 # [0.16.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.15.0...v0.16.0) (2025-08-04)
 
 
