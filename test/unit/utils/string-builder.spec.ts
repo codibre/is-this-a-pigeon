@@ -65,7 +65,7 @@ describe(StringBuilder.name, () => {
 			.appendIf(true, 'b', 'y')
 			.appendIf(false, 'c', undefined);
 		// Assert
-		expect(sb.toString()).toBe('xbundefined');
+		expect(sb.toString()).toBe('xb');
 	});
 
 	it('should prependIf only when condition is true', () => {
@@ -82,7 +82,7 @@ describe(StringBuilder.name, () => {
 			.prependIf(true, 'b', 'y')
 			.prependIf(false, 'c', undefined);
 		// Assert
-		expect(sb.toString()).toBe('undefinedbx');
+		expect(sb.toString()).toBe('bx');
 	});
 
 	it('should support chaining with appendIf and prependIf and elseAdd', () => {

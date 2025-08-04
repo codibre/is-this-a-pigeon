@@ -1,11 +1,9 @@
-import { LinkedList } from './linked-list';
-
 /**
- * Efficient string builder using LinkedList for fast append and prepend operations.
+ * Efficient string builder using Array for fast append and prepend operations.
  * Supports concatenation and joining with a separator.
  */
 export class StringBuilder {
-	private list = new LinkedList<unknown>();
+	private list: unknown[] = [];
 
 	/**
 	 * Returns the number of elements in the builder.
@@ -73,11 +71,7 @@ export class StringBuilder {
 	 * @returns The concatenated string
 	 */
 	toString(): string {
-		let result = '';
-		for (const part of this.list) {
-			result += part;
-		}
-		return result;
+		return this.list.join('');
 	}
 
 	/**
@@ -87,13 +81,6 @@ export class StringBuilder {
 	 * @returns The joined string
 	 */
 	join(separator: string): string {
-		let result = '';
-		let first = true;
-		for (const part of this.list) {
-			if (!first) result += separator;
-			result += part;
-			first = false;
-		}
-		return result;
+		return this.list.join(separator);
 	}
 }
