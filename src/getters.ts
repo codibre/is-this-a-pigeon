@@ -48,3 +48,26 @@ export function assertAndGetStringProperty<K extends keyof ObjectKeyType>(
 ): string {
 	return assertAndGetProperty(obj, prop, isString, errorCallOrMessage);
 }
+
+/**
+ * Try to require a module and return it if successful, or undefined if it fails.
+ * This is useful for optional dependencies or dynamic imports.
+ * * @template T The type of the module to require. You may get it as import type * as msType from 'your-module';
+ * Example:
+ * ```ts
+ * import type * as msType from 'your-module';
+ * const ms = tryRequire<typeof msType>('your-module');
+ * function doSomething() {
+ *   assertDefined(ms, 'Module "your-module" is not available');
+ *   ms.someFunction();
+ * }
+ * @param module The module to require.
+ * @returns
+ */
+export function tryRequire<T>(module: string): T | undefined {
+	try {
+		return require(module);
+	} catch {
+		return undefined;
+	}
+}

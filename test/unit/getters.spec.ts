@@ -2,6 +2,7 @@ import {
 	assertAndGetNonNullish,
 	assertAndGetStringProperty,
 	getDefinedProperty,
+	tryRequire,
 } from '../../src';
 
 describe('getters.ts', () => {
@@ -74,6 +75,21 @@ describe('getters.ts', () => {
 			}
 
 			expect(thrownError).toBeDefined();
+		});
+	});
+
+	describe(tryRequire.name, () => {
+		it('should return the required module if it exists', () => {
+			const fs = tryRequire<typeof import('fs')>('fs');
+			expect(fs).toBeDefined();
+			if (fs) {
+				expect(typeof fs.readFile).toBe('function');
+			}
+		});
+
+		it('should return undefined if the module does not exist', () => {
+			const mod = tryRequire<any>('non-existent-module-xyz');
+			expect(mod).toBeUndefined();
 		});
 	});
 });
