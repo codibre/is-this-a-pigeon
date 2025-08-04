@@ -48,6 +48,7 @@ describe(StringBuilder.name, () => {
 		// Assert
 		expect(sb.toString()).toBe('bac');
 		expect(sb.join(',')).toBe('b,a,c');
+		expect(sb.count).toBe(3);
 	});
 
 	it('should appendIf only when condition is true', () => {
@@ -55,6 +56,7 @@ describe(StringBuilder.name, () => {
 		sb.appendIf(false, 'a').appendIf(true, 'b').appendIf(true, 'c');
 		// Assert
 		expect(sb.toString()).toBe('bc');
+		expect(sb.count).toBe(3);
 	});
 
 	it('should appendIf elseAdd when condition is false and elseAdd is provided', () => {
@@ -70,6 +72,7 @@ describe(StringBuilder.name, () => {
 		// Act
 		sb.prependIf(false, 'a').prependIf(true, 'b').prependIf(true, 'c');
 		// Assert
+		expect(sb.count).toBe(0);
 		expect(sb.toString()).toBe('cb');
 	});
 

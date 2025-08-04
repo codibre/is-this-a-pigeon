@@ -58,6 +58,13 @@ export class StringBuilder {
 	}
 
 	/**
+	 * Returns the number of elements in the builder.
+	 */
+	get count(): number {
+		return this.list.length;
+	}
+
+	/**
 	 * Concatenates all strings in the builder and returns the result.
 	 *
 	 * @returns The concatenated string
