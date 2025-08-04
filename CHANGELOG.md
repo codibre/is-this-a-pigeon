@@ -1,3 +1,10 @@
+# [0.16.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.15.0...v0.16.0) (2025-08-04)
+
+
+### Features
+
+* adding LinkedList and StringBuilder ([4846db3](https://github.com/codibre/is-this-a-pigeon/commit/4846db34bc2ee08eeae7c89812b47fb2d12d888e))
+
 # [0.15.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.14.0...v0.15.0) (2025-08-02)
 
 
