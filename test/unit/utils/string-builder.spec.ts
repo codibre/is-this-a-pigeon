@@ -44,6 +44,56 @@ describe(StringBuilder.name, () => {
 
 	it('should combine append and prepend', () => {
 		// Act
+		sb.append('a').prepend('b').append('c');
+		// Assert
+		expect(sb.toString()).toBe('bac');
+		expect(sb.join(',')).toBe('b,a,c');
+	});
+
+	it('should appendIf only when condition is true', () => {
+		// Act
+		sb.appendIf(false, 'a').appendIf(true, 'b').appendIf(true, 'c');
+		// Assert
+		expect(sb.toString()).toBe('bc');
+	});
+
+	it('should appendIf elseAdd when condition is false and elseAdd is provided', () => {
+		// Act
+		sb.appendIf(false, 'a', 'x')
+			.appendIf(true, 'b', 'y')
+			.appendIf(false, 'c', undefined);
+		// Assert
+		expect(sb.toString()).toBe('xbundefined');
+	});
+
+	it('should prependIf only when condition is true', () => {
+		// Act
+		sb.prependIf(false, 'a').prependIf(true, 'b').prependIf(true, 'c');
+		// Assert
+		expect(sb.toString()).toBe('cb');
+	});
+
+	it('should prependIf elseAdd when condition is false and elseAdd is provided', () => {
+		// Act
+		sb.prependIf(false, 'a', 'x')
+			.prependIf(true, 'b', 'y')
+			.prependIf(false, 'c', undefined);
+		// Assert
+		expect(sb.toString()).toBe('undefinedbx');
+	});
+
+	it('should support chaining with appendIf and prependIf and elseAdd', () => {
+		// Act
+		sb.appendIf(true, 'a')
+			.prependIf(true, 'b')
+			.appendIf(false, 'c', 'x')
+			.prependIf(false, 'd', 'y');
+		// Assert
+		expect(sb.toString()).toBe('yba' + 'x');
+	});
+
+	it('should combine append and prepend', () => {
+		// Act
 		sb.append('a');
 		sb.prepend('b');
 		sb.append('c');
