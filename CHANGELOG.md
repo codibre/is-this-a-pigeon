@@ -1,3 +1,10 @@
+# [0.18.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.17.0...v0.18.0) (2025-08-04)
+
+
+### Features
+
+* adding count prop ([f13a6aa](https://github.com/codibre/is-this-a-pigeon/commit/f13a6aa998e632e0f43a0c8fe8677bd191d2d5e4))
+
 # [0.17.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.16.1...v0.17.0) (2025-08-04)
 
 
