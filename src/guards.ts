@@ -248,3 +248,27 @@ export function isError(value: unknown): value is Error {
 		isProperty(value, 'stack', or(isString, isUndefined))
 	);
 }
+
+/**
+ * Check if obj is an IterableIterator.
+ * An IterableIterator is an object that implements both the iterable and iterator protocols.
+ * It has a next() method that returns an object with value and done properties,
+ * and it can be iterated over using a for...of loop, but only once, as it is not reusable.
+ * it will return false for arrays, strings, Maps, and Sets.
+ * @param obj The object to check.
+ */
+export function isIterableIterator(
+	obj: unknown,
+): obj is IterableIterator<unknown> {
+	return (
+		isObject(obj) &&
+		'next' in obj &&
+		Symbol.iterator in obj &&
+		typeof obj.next === 'function' &&
+		typeof obj[Symbol.iterator] === 'function' &&
+		!Array.isArray(obj) &&
+		typeof obj !== 'string' &&
+		!(obj instanceof Map) &&
+		!(obj instanceof Set)
+	);
+}
