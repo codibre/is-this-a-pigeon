@@ -1,3 +1,10 @@
+# [0.20.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.19.1...v0.20.0) (2025-08-05)
+
+
+### Features
+
+* adding isIterableIterator ([dc1bc92](https://github.com/codibre/is-this-a-pigeon/commit/dc1bc92b4b191281adaf152d350a3f0db7cf8918))
+
 ## [0.19.1](https://github.com/codibre/is-this-a-pigeon/compare/v0.19.0...v0.19.1) (2025-08-04)
 
 
