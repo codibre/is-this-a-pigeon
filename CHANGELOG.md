@@ -1,3 +1,10 @@
+# [0.23.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.22.0...v0.23.0) (2025-08-17)
+
+
+### Features
+
+* first stable [BREAKING CHANGE] ([2d49c38](https://github.com/codibre/is-this-a-pigeon/commit/2d49c38a5b182cbd8a8e51362910e139032e1b48))
+
 # [0.20.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.19.1...v0.20.0) (2025-08-05)
 
 
