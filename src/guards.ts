@@ -29,7 +29,7 @@ export function isFulfilled<T>(
 export function isRejected<T>(
 	value: PromiseSettledResult<T>,
 ): value is PromiseRejectedResult {
-	return value.status === 'fulfilled';
+	return value.status === 'rejected';
 }
 
 export function isOnlyIterable(value: any): value is Iterable<any> {
