@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/codibre/is-this-a-pigeon/compare/v1.0.0...v1.0.1) (2025-08-30)
+
+
+### Bug Fixes
+
+* fixing isRejected ([1a89ccb](https://github.com/codibre/is-this-a-pigeon/commit/1a89ccb63640703b0ce8ea3f78949a477a5de820))
+
 # [1.0.0](https://github.com/codibre/is-this-a-pigeon/compare/v0.23.0...v1.0.0) (2025-08-17)
 
 
