@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/codibre/is-this-a-pigeon/compare/v1.0.1...v1.1.0) (2025-09-09)
+
+
+### Features
+
+* adding Optional type ([a451a14](https://github.com/codibre/is-this-a-pigeon/commit/a451a14eb685b8b8f7ccdbf8d830df16641e339d))
+
 ## [1.0.1](https://github.com/codibre/is-this-a-pigeon/compare/v1.0.0...v1.0.1) (2025-08-30)
 
 
