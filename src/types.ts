@@ -19,6 +19,7 @@ export type ClassMethod<
 T extends Object,
 K extends KeysOfType<T, Func>
 > = T[K];
+export type Optional<T> = T | undefined;
 export type Nullable<T> = T | undefined | null;
 export type OmitFields<T, K extends keyof T> = Omit<T, K>;
 export type RequiredFields<T, K extends keyof T> = T & Required<{
