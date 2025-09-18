@@ -108,25 +108,28 @@ export function isNonNullish<T>(t: Nullable<T>): t is NonNullable<T> {
 	return t !== null && t !== undefined;
 }
 
-export function hasProperty<T extends object, K extends keyof T>(
+export function hasProperty<T extends object, K extends keyof T, V = unknown>(
 	t: T,
 	prop: K,
+	fieldAssert?: (x: unknown) => x is V,
 ): t is T & {
 	[k in K]: NonNullable<T[K]>;
 };
-export function hasProperty<P extends ObjectKeyType>(
+export function hasProperty<P extends ObjectKeyType, V = unknown>(
 	t: unknown,
 	prop: P,
+	fieldAssert?: (x: unknown) => x is V,
 ): t is {
 	[k in P]: unknown;
 };
-export function hasProperty<P extends ObjectKeyType>(
+export function hasProperty<P extends ObjectKeyType, T>(
 	t: any,
 	prop: P,
+	fieldAssert: (x: unknown) => x is T = (x): x is T => x !== undefined,
 ): t is {
 	[k in P]: unknown;
 } {
-	return t && t[prop] !== undefined;
+	return t && fieldAssert(t[prop]);
 }
 
 export function hasTruthyProperty<T extends object, K extends keyof T>(
@@ -199,6 +202,28 @@ export function hasMethods<T extends ObjectKeyType>(
 }
 
 export const isArray: (a: unknown) => a is any[] = Array.isArray;
+
+/**
+ * Factory that returns a guard function to validate if:
+ * - the input is an array
+ * - the array contains items of the specified type
+ * @param itemGuard A guard function to validate each item in the array.
+ * @param deepness how many items should be validated. Default is 1.
+ * @returns A guard function that checks if an array contains items of the specified type.
+ */
+export function isArrayOf<T>(
+	itemGuard: (a: unknown) => a is T,
+	deepness = 1,
+): (a: unknown) => a is T[] {
+	return (a: unknown): a is T[] => {
+		if (!isArray(a)) return false;
+		const upTo = Math.min(deepness, a.length);
+		for (let i = 0; i < upTo; i++) {
+			if (!itemGuard(a[i])) return false;
+		}
+		return true;
+	};
+}
 
 export function hasSize(x: unknown): x is Sizeable {
 	return hasProperty(x, 'size');

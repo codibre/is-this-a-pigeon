@@ -462,6 +462,24 @@ describe('guards.ts', () => {
 
 			expect(result).toBe(false);
 		});
+
+		it('should return true when fieldAssert validates the property type', () => {
+			const value: any = { a: 123, b: 'hello' };
+			const result = hasProperty(value, 'a', isNumber);
+			expect(result).toBe(true);
+		});
+
+		it('should return false when fieldAssert fails the property type', () => {
+			const value: any = { a: 123, b: 'hello' };
+			const result = hasProperty(value, 'b', isNumber);
+			expect(result).toBe(false);
+		});
+
+		it('should return false when property does not exist, even if fieldAssert would pass', () => {
+			const value: any = { a: 123 };
+			const result = hasProperty(value, 'b', isNumber);
+			expect(result).toBe(false);
+		});
 	});
 
 	describe(hasTruthyProperty.name, () => {
