@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/codibre/is-this-a-pigeon/compare/v1.1.0...v1.2.0) (2025-09-18)
+
+
+### Features
+
+* creating isArrayOf factory and hasProperty ([951f4ee](https://github.com/codibre/is-this-a-pigeon/commit/951f4eef590a48aac0d4a0f30dfb8e23dcb893c7))
+
 # [1.1.0](https://github.com/codibre/is-this-a-pigeon/compare/v1.0.1...v1.1.0) (2025-09-09)
 
 
